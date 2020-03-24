@@ -3,23 +3,45 @@
     <%- include('../partials/head', {tag: meta}); %>
 <body>
 <header class="header">
-    <div class="bars_container" onclick="myFunction(this)">
+    <div id="menu_button" class="bars_container">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
     </div>
 </header>
 
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" id="closebtn" class="closebtn"> 
+        &times;
+    </a>
+    
+    <div class="text_container">
+        <h2>FIQUE EM CASA!</h2>
+    </div>
+</div>
+
 <main class="main main_home">
     <h1>Posso sair de casa?</h1>
 
-    <p>Não, Fique em casa porra <span>&#128530;</span> </p>
+    <p>Não, Fique em casa porra</p>
 </main>
 
 <script>
-    function myFunction(x) {
-        x.classList.toggle("change");
-    }
+    let menu_button = document.getElementById("menu_button");
+    let closebtn    =  document.getElementById("closebtn");
+    let count = 0;
+
+    menu_button.addEventListener("click", () => {
+        count ++;
+        console.log(`clicou ${count} vezes`)
+
+        document.getElementById("mySidenav").style.width = "80%";
+    });
+    
+    closebtn.addEventListener("click", () => {
+        document.getElementById("mySidenav").style.width = "0";
+    });
+
 </script>
 </body>
 </html>
