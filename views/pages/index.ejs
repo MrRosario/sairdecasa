@@ -10,6 +10,12 @@
     </div>
 </header>
 
+<main class="main main_home">
+    <h1>Posso sair de casa?</h1>
+
+    <p>Não, Fique em casa porra</p>
+</main>
+
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" id="closebtn" class="closebtn"> 
         &times;
@@ -20,28 +26,25 @@
     </div>
 </div>
 
-<main class="main main_home">
-    <h1>Posso sair de casa?</h1>
-
-    <p>Não, Fique em casa porra</p>
-</main>
-
 <script>
     let menu_button = document.getElementById("menu_button");
     let closebtn    =  document.getElementById("closebtn");
-    let count = 0;
-
+    let clicksOpenModal = 0;
+    let clicksCloseModal = 0
     menu_button.addEventListener("click", () => {
-        count ++;
-        console.log(`clicou ${count} vezes`)
+        clicksOpenModal ++;
+        console.log(`Abriu modal ${clicksOpenModal} vezes`);
 
         document.getElementById("mySidenav").style.width = "80%";
     });
     
     closebtn.addEventListener("click", () => {
+        clicksCloseModal ++;
+        console.log(`Fechou modal ${clicksCloseModal} vezes`);
+
         document.getElementById("mySidenav").style.width = "0";
     });
-
 </script>
+
 </body>
 </html>
