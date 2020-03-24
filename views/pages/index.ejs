@@ -2,11 +2,24 @@
 <html lang="pt">
     <%- include('../partials/head', {tag: meta}); %>
 <body>
-    
-<main class="conteudo">
-    HOME PAGE
+<header class="header">
+    <div class="bars_container" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+</header>
+
+<main class="main main_home">
+    <h1>Posso sair de casa?</h1>
+
+    <p>Não, Fique em casa porra <span>&#128530;</span> </p>
 </main>
 
-
+<script>
+    function myFunction(x) {
+        x.classList.toggle("change");
+    }
+</script>
 </body>
 </html>
