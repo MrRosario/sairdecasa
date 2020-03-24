@@ -13,8 +13,8 @@ app.set('view engine', 'ejs');
 app.get("/", async function(req, res){
     let Tags = {
         titulo: `Posso sair de casa? - Covide-19`,
-        meta_description: `Veja os lugares mais seguros onde você pode ir, usando o seu GPS`,
-        meta_keywords: `Veja os lugares mais seguros onde você pode ir, usando o seu GPS`,
+        meta_description: `Lugares mais seguros onde você pode ir, usando o seu GPS`,
+        meta_keywords: `Lugares mais seguros onde você pode ir, usando o seu GPS`,
         og_title: `Posso sair de casa? - Covide-19`,
         meta_URL: `https://possosairdecasa.herokuapp.com/`
     };
