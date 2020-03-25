@@ -29,21 +29,54 @@
 <script>
     let menu_button = document.getElementById("menu_button");
     let closebtn    =  document.getElementById("closebtn");
-    let clicksOpenModal = 0;
-    let clicksCloseModal = 0
+
     menu_button.addEventListener("click", () => {
-        clicksOpenModal ++;
-        console.log(`Abriu modal ${clicksOpenModal} vezes`);
 
         document.getElementById("mySidenav").style.width = "80%";
+
+        fetch(`/modalAberto`, {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                currentDate: Date.now()
+            })
+          })
+          .then(function (data) {  
+            console.log("dados enviados com sucesso", data)
+          })  
+          .catch(function (error) {  
+            console.log('Request failure: ', error
+            );  
+        });
     });
     
     closebtn.addEventListener("click", () => {
-        clicksCloseModal ++;
-        console.log(`Fechou modal ${clicksCloseModal} vezes`);
-
         document.getElementById("mySidenav").style.width = "0";
     });
+
+    setTimeout( function() {
+        console.log("intervalo ativo....")
+        fetch(`/`, {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                usrAGent: navigator.userAgent,
+                currentDate: Date.now()
+            })
+          })
+          .then(function (data) {  
+            console.log("dados enviados com sucesso", data)
+          })  
+          .catch(function (error) {  
+            console.log('Request failure: ', error);  
+          });
+    }, 1000 );
 </script>
 
 </body>
