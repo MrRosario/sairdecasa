@@ -30,6 +30,7 @@ header{
 main.main{
     margin-top: 30px;
 }
+main.main,
 main.main_home{
     text-align: center;
 }
@@ -43,6 +44,20 @@ main.main_home > p{
     letter-spacing: 1px;
 }
 
+.back_btn{
+    text-decoration: none;
+    color: #000000;
+    margin-left: 10px;
+    position: relative;
+    top: 20px;
+    font-size: 15px;
+}
+.main_dados h2{
+    font-size: 23px;
+}
+.main_dados h1{
+    font-size: 40px;
+}
 .sidenav {
     height: 100%;
     width: 0;
@@ -85,6 +100,24 @@ main.main_home > p{
     color: #ffffff;
     margin-top: 50px;
 }
+.footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    height: 35px;
+}
+.footer > p{
+    display: flex;
+    justify-content: center;
+}
+.footer a.social_insta{
+    margin-left: 5px;
+}
+.footer a.social_insta img{
+    width: 25px;
+    height: 25px;
+} 
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}

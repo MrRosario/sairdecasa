@@ -34,9 +34,27 @@ app.get("/dados", async function(req, res){
         og_title: `Posso sair de casa? - Covide-19`,
         meta_URL: `https://possosairdecasa.herokuapp.com/`
     };
-    res.render('pages/dados',{
-        meta: Tags,
-    });
+
+    userModel.aggregate([ 
+        { $group: { _id : null, sum : { $sum: "$views" } } }
+    ])
+    .then((data) =>{
+        if(data.length > 0){
+            res.render('pages/dados',{
+                meta: Tags,
+                totalVisitas: data[0].sum 
+            });
+        }else{
+            res.render('pages/dados',{
+                meta: Tags,
+                totalVisitas: 0
+            });
+        }
+    })
+    .catch((err)=>{
+        console.log('Erro ao calcular total de visitas', err);
+    }); 
+    
 });
 
 app.post("/", async function(req, res){
